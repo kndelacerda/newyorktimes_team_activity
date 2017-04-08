@@ -1,4 +1,4 @@
-var search = $("#searchTermInput").val().trim();
+var search = $("#searchTermInput")
 var recordsRetrieve = $("#retrieveRecordsInput").val().trim();
 var startYear = $("#startYearInput").val().trim();
 var endYear = $("#endYearInput").val().trim();
@@ -11,7 +11,13 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key
 //   'api-key': "ef64250c6403470c9dbc1a5b44250ab8"
 // });
 
-$("#search").on('click')function
+$("#search").on("click", function(event) {
+  event.preventDefault();
+  articleCounter = 0;
+  $("#well-section").empty();
+  searchTermInput = $("searchTermInput").val().trim();
+  var queryURL = queryURLBase + searchTermInput
+
 
 $.ajax({
   url: queryURL,
@@ -20,7 +26,7 @@ $.ajax({
   console.log(result);
 
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 5; i++)
 
   //   var div = $("<div>");
   //
@@ -36,6 +42,3 @@ $.ajax({
   //
   // }).fail(function(err) {
   //   throw err;
-  });
-  }
-});
